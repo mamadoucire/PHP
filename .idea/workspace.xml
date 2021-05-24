@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71c15a2-d61d-403e-a033-d1105ceecea9" name="Default Changelist" comment="Create a release with each commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b71c15a2-d61d-403e-a033-d1105ceecea9" name="Default Changelist" comment="Added service name">
       <change beforePath="$PROJECT_DIR$/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +190,7 @@
       <workItem from="1612995257258" duration="38000" />
       <workItem from="1613003552953" duration="2531000" />
       <workItem from="1613011190322" duration="297000" />
-      <workItem from="1621894743179" duration="576000" />
+      <workItem from="1621894743179" duration="891000" />
     </task>
     <task id="LOCAL-00001" summary="Starting work on php example app">
       <created>1579501496063</created>
@@ -361,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621895012714</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added service name">
+      <created>1621895327539</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1621895327539</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +404,8 @@
     <MESSAGE value="Fixed up routes" />
     <MESSAGE value="Added the ping endpoint" />
     <MESSAGE value="Create a release with each commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create a release with each commit" />
+    <MESSAGE value="Added service name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added service name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

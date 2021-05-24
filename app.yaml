@@ -1,2 +1,3 @@
 runtime: php74
 service: randomquotes-php
+entrypoint: serve public/index.php
