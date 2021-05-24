@@ -3,5 +3,6 @@ service: randomquotes-php
 entrypoint: serve public/index.php
 
 handlers:
-  - url: /(.*?\.(html|css|js))
+  - url: /(.*\.(html|css|js))$
     static_files: public/\1
+    upload: public/.*\.(html|css|js)$
