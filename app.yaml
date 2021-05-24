@@ -1,1 +1,2 @@
 runtime: php74
+service: randomquotes-php
