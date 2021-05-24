@@ -1,3 +1,7 @@
 runtime: php74
 service: randomquotes-php
 entrypoint: serve public/index.php
+
+handlers:
+  - url: /(.*?\.(html|css|js))
+    static_files: public/\1
