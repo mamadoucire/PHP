@@ -14,6 +14,8 @@ class Routes
 
         $app = AppFactory::create();
 
+        $app->addErrorMiddleware(true,true,true);
+
         $app->get('/api/quote', function (Request $request, Response $response) {
             $authors = file(__DIR__ . "/authors.txt", FILE_IGNORE_NEW_LINES);
             $quotes = file(__DIR__ . "/quotes.txt", FILE_IGNORE_NEW_LINES);
