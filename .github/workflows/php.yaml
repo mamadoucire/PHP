@@ -137,7 +137,7 @@ jobs:
         api_key: ${{ secrets.OCTOPUS_API_TOKEN }}
         project: RandomQuotes-PHP
         server: ${{ secrets.OCTOPUS_SERVER_URL }}
-        deploy_to: Development
+        deploy_to: Dev
         packages: RandomQuotes-PHP:${{ steps.determine_version.outputs.semVer }}
 name: PHP Build
 'on':
