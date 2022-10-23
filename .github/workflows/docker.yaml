@@ -1,0 +1,73 @@
+# The following workflow provides an opinionated template you can customize for your own needs.
+#
+# To configure Octopus, set the OCTOPUS_API_TOKEN secret to the Octopus API key, and
+# set the OCTOPUS_SERVER_URL secret to the Octopus URL.
+#
+# Double check the "project" and "deploy_to" properties in the "Create Octopus Release" step
+# match your Octopus projects and environments.
+#
+# Get a trial Octopus instance from https://octopus.com/start
+name: Docker Build
+'on':
+  workflow_dispatch: {}
+  push: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: '0'
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_SAMPLES_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_SAMPLES_PASSWORD }}
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v0.9.7
+      with:
+        versionSpec: 5.x
+    - id: determine_version
+      name: Determine Version
+      uses: gittools/actions/gitversion/execute@v0.9.7
+      with:
+        additionalArguments: /overrideconfig mode=Mainline
+    - name: Install Octopus Deploy CLI
+      uses: OctopusDeploy/install-octocli@v1.1.1
+      with:
+        version: latest
+    - name: Install Dependencies
+      run: composer install
+      shell: bash
+    - name: Test
+      run: vendor/bin/phpunit --log-junit results.xml tests || true
+      shell: bash
+    - if: always()
+      name: Report
+      uses: dorny/test-reporter@v1
+      with:
+        name: PHP Tests
+        path: results.xml
+        reporter: java-junit
+        fail-on-error: 'false'
+    - name: Build and push
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        tags: octopussamples/randomquotesphp:latest
+    - name: Create Octopus Release
+      uses: OctopusDeploy/create-release-action@v1.1.1
+      with:
+        api_key: ${{ secrets.OCTOPUS_API_TOKEN }}
+        project: RandomQuotes-PHP
+        server: ${{ secrets.OCTOPUS_SERVER_URL }}
+        deploy_to: Development
+        packages: RandomQuotes-PHP:${{ steps.determine_version.outputs.semVer }}
