@@ -70,4 +70,4 @@ jobs:
         project: RandomQuotes-PHP
         server: ${{ secrets.OCTOPUS_SERVER_URL }}
         deploy_to: Dev
-        packages: randomquotesphp:${{ steps.determine_version.outputs.semVer }}
+        packages: Deploy container to Kubernetes:randomquotes:${{ steps.determine_version.outputs.semVer }}
