@@ -62,7 +62,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: octopussamples/randomquotesphp:latest
+        tags: octopussamples/randomquotesphp:${{ steps.determine_version.outputs.semVer }}
     - name: Create Octopus Release
       uses: OctopusDeploy/create-release-action@v1.1.1
       with:
@@ -70,4 +70,4 @@ jobs:
         project: RandomQuotes-PHP
         server: ${{ secrets.OCTOPUS_SERVER_URL }}
         deploy_to: Dev
-        packages: RandomQuotes-PHP:${{ steps.determine_version.outputs.semVer }}
+        packages: octopussamples/randomquotesphp:${{ steps.determine_version.outputs.semVer }}
