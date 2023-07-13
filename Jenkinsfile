@@ -1,6 +1,6 @@
 pipeline {
     agent {
-    label '192.168.221.138'
+    label 'windows'
     }
 
     stages {
