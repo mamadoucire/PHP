@@ -18,7 +18,8 @@ pipeline {
                 bat 'php -r "copy(\'https://getcomposer.org/installer\', \'composer-setup.php\');"'
                 bat 'php composer-setup.php'
                 bat 'php -r "unlink(\'composer-setup.php\');"'
-                bat 'php composer.phar update'
+                bat 'php composer.phar clear-cache'
+                bat 'php composer.phar self-update'
                 // Étape d'installation des dépendances via Composer
                 bat 'php composer.phar install'
             }
