@@ -1,6 +1,6 @@
 pipeline {
     agent {
-    label 'serveur-spécifique'
+    label '192.168.221.138'
     }
 
     stages {
