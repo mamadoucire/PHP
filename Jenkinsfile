@@ -14,7 +14,6 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Étape d'installation de Composer
-                bat 'choco install php'
                 bat 'php --version'
                 bat 'php -r "copy(\'https://getcomposer.org/installer\', \'composer-setup.php\');"'
                 bat 'php composer-setup.php'
