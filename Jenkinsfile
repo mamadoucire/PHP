@@ -33,8 +33,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Étape de construction de votre projet PHP (par exemple, exécution de tests, génération de fichiers, etc.)
-                bat 'cp .env.example .env'
-                bat 'php artisan key:generate'
+                  bat 'ng build --configuration'
              /*   bat 'php build.php'*/
             }
         }
