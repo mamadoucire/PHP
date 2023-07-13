@@ -24,10 +24,17 @@ pipeline {
                 bat 'php composer.phar install'
             }
         }
+        stage('Test') {
+            steps {
+                sh './vendor/bin/phpunit'
+            }
+        }
 
         stage('Build') {
             steps {
                 // Étape de construction de votre projet PHP (par exemple, exécution de tests, génération de fichiers, etc.)
+                bat 'cp .env.example .env'
+                bat 'php artisan key:generate'
                 bat 'php build.php'
             }
         }
