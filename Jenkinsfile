@@ -19,7 +19,6 @@ pipeline {
                 bat 'php composer-setup.php'
                 bat 'php -r "unlink(\'composer-setup.php\');"'
                 bat 'php composer.phar update'
-'
                 // Étape d'installation des dépendances via Composer
                 bat 'php composer.phar install'
             }
