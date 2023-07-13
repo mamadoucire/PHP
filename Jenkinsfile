@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Étape de récupération du code source depuis un référentiel Git
-                git 'https://github.com/votre-repo.git'
+                git 'https://github.com/mamadoucire/PHP.git'
             }
         }
 
