@@ -24,19 +24,34 @@ pipeline {
                 bat 'php composer.phar install'
             }
         }
-        stage('Test') {
+
+        stage('Installation de angular cli et node js'){
+            steps{
+                // Installation de Node.js v16.20.0
+                bat 'curl -sL https://nodejs.org/dist/v16.20.0/node-v16.20.0-x64.msi -o nodejs.msi'
+                bat 'msiexec /i nodejs.msi /quiet'
+        
+               // Installation d'Angular CLI 15.2.4
+               bat 'npm install -g @angular/cli@15.2.4'
+        
+               // Vérification des versions installées
+               bat 'node -v'
+               bat 'ng --version'
+            }
+        }
+      /*  stage('Test') {
             steps {
                 sh './vendor/bin/phpunit'
             }
-        }
+        }*/
 
-        stage('Build') {
+     /* stage('Build') {
             steps {
                 // Étape de construction de votre projet PHP (par exemple, exécution de tests, génération de fichiers, etc.)
                   bat 'ng build --configuration'
              /*   bat 'php build.php'*/
             }
-        }
+        }*/
 
       /*  stage('Deploy') {
             steps {
