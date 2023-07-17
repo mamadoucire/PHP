@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-        stage('Installation de angular cli et node js'){
+      /*  stage('Installation de angular cli et node js'){
             steps{
                 // Installation de Node.js v16.20.0
                 bat 'curl -sL https://nodejs.org/dist/v16.20.0/node-v16.20.0-x64.msi -o nodejs.msi'
@@ -41,7 +41,7 @@ pipeline {
                bat 'setx PATH "%PATH%;%APPDATA%\\npm"'
                bat 'ng --version'
             }
-        }
+        }*/
       /*  stage('Test') {
             steps {
                 sh './vendor/bin/phpunit'
