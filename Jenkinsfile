@@ -38,6 +38,7 @@ pipeline {
                bat 'npm link @angular/cli'
                // Vérification des versions installées
                bat 'node -v'
+               bat 'setx PATH "%PATH%;%APPDATA%\\npm"'
                bat 'ng --version'
             }
         }
