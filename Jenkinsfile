@@ -7,11 +7,11 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Étape de récupération du code source depuis un référentiel Git
-                git 'https://github.com/mamadoucire/PHP.git'
+                git 'https://github.com/mamadoucire/angular.git'
             }
         }
 
-        stage('Install Dependencies') {
+     /*   stage('Install Dependencies') {
             steps {
                 // Étape d'installation de Composer
                 bat 'php --version'
@@ -23,7 +23,7 @@ pipeline {
                 // Étape d'installation des dépendances via Composer
                 bat 'php composer.phar install'
             }
-        }
+        }*/
 
       /*  stage('Installation de angular cli et node js'){
             steps{
