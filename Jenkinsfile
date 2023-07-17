@@ -33,7 +33,9 @@ pipeline {
         
                // Installation d'Angular CLI 15.2.4
                bat 'npm install -g @angular/cli@15.2.4'
-        
+               
+               // Lien symbolique pour Angular CLI
+               bat 'npm link @angular/cli'
                // Vérification des versions installées
                bat 'node -v'
                bat 'ng --version'
