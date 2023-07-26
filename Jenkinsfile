@@ -27,7 +27,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Étape de test de votre projet PHP (par exemple, exécution de tests unitaires, etc.)
-                bat 'php vendor/bin/phpunit'
+                bat 'php vendor/bin/phpunit tests/'
             }
         }
         stage('Build') {
