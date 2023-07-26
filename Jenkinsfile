@@ -39,7 +39,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Étape de déploiement de votre projet PHP (par exemple, copie des fichiers sur un serveur distant)
-                bat 'xcopy /E /I /Y src\ dist\'
+                bat "xcopy /E /I /Y src/ dist/"
                 // ou utilisez d'autres commandes spécifiques à votre processus de déploiement
             }
         }
